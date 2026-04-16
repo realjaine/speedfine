@@ -59,22 +59,13 @@ Speed = \frac{Distance}{Time}
 
 ---
 
-## 🧩 System Architecture
+## 🧩 System Architecture  ## 🔄 Flowchart  ## 🔌 Circuit Diagram
 
 <img width="1024" height="1536" alt="ChatGPT Image Apr 16, 2026, 02_04_57 PM" src="https://github.com/user-attachments/assets/13dd29a7-b5ad-4ade-a0d8-2cf07568201c" />
 ---
 
-## 🔄 Flowchart
 
-![Flowchart](docs/flowchart.png)
 
----
-
-## 🔌 Circuit Diagram
-
-![Circuit](hardware/circuit_diagram.png)
-
----
 
 ## 🛠️ Hardware Components
 
