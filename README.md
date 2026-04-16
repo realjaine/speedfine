@@ -4,12 +4,6 @@
 
 ---
 
-## 👨‍🏫 Instructor
-
-**Dr. MOHAMED ASAN BASIRI M**
-
----
-
 ## 👨‍💻 Author
 
 **Tanmay Jain**
