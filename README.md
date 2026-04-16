@@ -1,40 +1,67 @@
-# 🚗 ESP32 Speed Detection & Automated Challan System
+# 🚗 Automated Speed Violation Detection & Challan System
 
-An IoT-based smart traffic monitoring system that detects vehicle speed using IR sensors and automatically issues challans via SMS and calls using Twilio API.
-
----
-
-## 📌 Features
-
-* 📡 Real-time speed detection using IR sensors
-* 🚨 Buzzer alert system
-* 📩 SMS alert for moderate violations
-* 📞 Call alert for severe violations
-* 📶 Wi-Fi enabled using ESP32
-* 📟 Expandable to LCD / Cloud dashboard
+> Microprocessors and Microcontrollers Practice (EC255)
 
 ---
 
-## ⚙️ Working Principle
+## 👨‍🏫 Instructor
 
-Two IR sensors are placed 25 cm apart.
-The ESP32 calculates the time taken for a vehicle to travel between them.
+**Dr. MOHAMED ASAN BASIRI M**
+
+---
+
+## 👨‍💻 Author
+
+**Tanmay Jain**
+B.Tech – Electronics and Communication Engineering
+IIITDM Kurnool
+
+---
+
+## 📌 Project Overview
+
+This project presents an **IoT-based automated traffic monitoring system** using ESP32 that detects vehicle speed and issues challans via SMS and calls using Twilio API.
+
+The system eliminates manual monitoring and ensures **real-time enforcement of speed limits**.
+
+---
+
+## 🎯 Objectives
+
+* Measure vehicle speed using IR sensors
+* Detect over-speeding in real time
+* Trigger local alerts (buzzer)
+* Send automated SMS and call notifications
+* Build a scalable smart traffic solution
+
+---
+
+## ⚙️ System Description
+
+Two IR sensors are placed at a fixed distance (25 cm).
+The ESP32 records the time difference between detections and calculates speed.
+
+### 📐 Formula Used
 
 [
 Speed = \frac{Distance}{Time}
 ]
 
-### Threshold Logic:
+---
 
-* ≤ 50 cm/s → Normal
-* 50–100 cm/s → ₹500 fine (SMS)
-* > 100 cm/s → ₹1000 fine (SMS + Call)
+## 🚦 Speed Classification
+
+| Speed Range   | Action                  |
+| ------------- | ----------------------- |
+| ≤ 50 cm/s     | Normal                  |
+| 50 – 100 cm/s | SMS Alert (₹500 Fine)   |
+| > 100 cm/s    | SMS + Call (₹1000 Fine) |
 
 ---
 
 ## 🧩 System Architecture
 
-![System Architecture](docs/system_architecture.png)
+![Architecture](docs/system_architecture.png)
 
 ---
 
@@ -52,34 +79,38 @@ Speed = \frac{Distance}{Time}
 
 ## 🛠️ Hardware Components
 
-* ESP32
-* IR Break Beam Sensors (2)
+* ESP32 Microcontroller
+* IR Break Beam Sensors (x2)
 * Buzzer
-* Breadboard & Wires
-* 16x2 LCD (optional)
+* Breadboard & Jumper Wires
+* 16×2 LCD (optional)
 
 ---
 
-## 💻 Software Requirements
+## 💻 Software & Tools
 
 * Arduino IDE
 * ESP32 Board Package
-* Twilio Account
+* Twilio API
+* Libraries:
+
+  * WiFi.h
+  * HTTPClient.h
+  * WiFiClientSecure.h
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
 ```bash
 📦 esp32-speed-detection-challan-system
  ┣ 📂 code
  ┃ ┣ main.ino
+ ┃ ┣ config.h
  ┃ ┣ twilio_handler.h
- ┃ ┗ config.h
  ┣ 📂 docs
  ┃ ┣ system_architecture.png
  ┃ ┣ flowchart.png
- ┃ ┗ results.png
  ┣ 📂 hardware
  ┃ ┗ circuit_diagram.png
  ┗ README.md
@@ -89,13 +120,15 @@ Speed = \frac{Distance}{Time}
 
 ## 🔐 Setup Instructions
 
-### 1. Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/esp32-speed-detection-challan-system
 ```
 
-### 2. Add Credentials (`config.h`)
+### 2️⃣ Configure Credentials
+
+Edit `config.h`:
 
 ```cpp
 #define WIFI_SSID "your_wifi"
@@ -114,68 +147,59 @@ git clone https://github.com/yourusername/esp32-speed-detection-challan-system
 
 * Uses Twilio REST API
 * HTTPS POST requests from ESP32
-* Basic Auth with Base64 encoding
+* Basic Authentication (Base64 encoded)
 
-### SMS Endpoint:
+### Endpoints Used:
 
-```
-/Messages.json
-```
-
-### Call Endpoint:
-
-```
-/Calls.json
-```
+* `/Messages.json` → SMS
+* `/Calls.json` → Voice Call
 
 ---
 
-## 🚀 How It Works
+## 🚀 Working Flow
 
-1. Vehicle crosses Sensor 1 → Start timer
-2. Vehicle crosses Sensor 2 → Stop timer
+1. Vehicle crosses Sensor 1 → Timer starts
+2. Vehicle crosses Sensor 2 → Timer stops
 3. Speed calculated
-4. Threshold check:
+4. Condition check:
 
-   * Medium → SMS sent
-   * High → SMS + Call
-5. Buzzer alerts locally
+   * Medium violation → SMS
+   * Severe violation → SMS + Call
+5. Buzzer alert triggered
 
 ---
 
 ## 📊 Results
 
-* Accurate speed detection (±5%)
-* Instant alerts
-* Reliable IoT communication
+* Accurate speed detection (~±5%)
+* Instant alert system
+* Reliable wireless communication
 
 ---
 
-## 🔮 Future Improvements
+## 🔮 Future Scope
 
-* Number plate recognition (AI)
-* Cloud dashboard
-* Fine payment integration
-* Traffic signal automation
+* License Plate Recognition (AI)
+* Cloud Dashboard Integration
+* Automated Fine Payment System
+* Smart Traffic Signal Control
 
 ---
 
 ## 📚 References
 
-* Twilio API Docs
-* ESP32 Documentation
-* Arduino Reference
+* Twilio API Documentation
+* ESP32 Technical Manual
+* Arduino Documentation
 
 ---
 
-## 👨‍💻 Author
+## 🙌 Acknowledgement
 
-**Tanmay Jain**
-B.Tech ECE
-IIITDM Kurnool
+I would like to thank **Dr. MOHAMED ASAN BASIRI M** for guidance and support throughout this project.
 
 ---
 
-## ⭐ If you like this project
+## ⭐ Support
 
-Give it a ⭐ on GitHub!
+If you found this useful, consider giving it a ⭐ on GitHub!
